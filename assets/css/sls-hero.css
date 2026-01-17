@@ -17,6 +17,10 @@
   color: #fff;
 }
 
+p.review-with-text {
+  margin-bottom: 0 !important;
+}
+
 .ss3d-slideshow-wrapper {
   position: relative;
   width: 100%;
