@@ -55,8 +55,8 @@ p.review-with-text {
 
 .ss3d-slide {
   position: absolute;
-  width: 650px;
-  height: 400px;
+  width: 600px;
+  height: 370px;
   border-radius: 16px;
   background-size: cover;
   background-position: center;
@@ -89,8 +89,8 @@ p.review-with-text {
 }
 
 .ss3d-desktop-screen {
-  width: 650px;
-  height: 400px;
+  width: 600px;
+  height: 370px;
   /* background: rgba(26, 26, 46, 0.3); */
   border-radius: 16px;
   /* box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7), 0 0 0 12px #2a2a3e,
@@ -179,8 +179,8 @@ p.review-with-text {
 
 .ss3d-content h1 {
   font-size: 3.5em;
-  margin-bottom: 25px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin-bottom: 12px;
+  background: #95bf47;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -199,6 +199,7 @@ p.review-with-text {
   gap: 12px;
   justify-content: center;
   margin-top: 40px;
+  display: none;
 }
 
 .ss3d-indicator {
@@ -261,8 +262,8 @@ p.review-with-text {
 
 @media (max-width: 1400px) {
   .ss3d-desktop-screen {
-    width: 700px;
-    height: 420px;
+    width: 480px;
+    height: 300px;
   }
 
   .ss3d-slide {
@@ -274,12 +275,21 @@ p.review-with-text {
     width: 1500px;
     height: 300px;
   }
+
+  .ss3d-slideshow-wrapper {
+    margin-bottom: 0;
+  }
+
+  .ss3d-slideshow-wrapper {
+    height: 420px;
+    margin-bottom: 0px;
+  }
 }
 
 @media (max-width: 1024px) {
   .ss3d-desktop-screen {
-    width: 600px;
-    height: 360px;
+    width: 400px;
+    height: 250px;
   }
 
   .ss3d-slide {
@@ -299,7 +309,7 @@ p.review-with-text {
 
 @media (max-width: 768px) {
   .ss3d-slideshow-wrapper {
-    height: 400px;
+    height: 350px;
   }
 
   .ss3d-desktop-screen {
@@ -308,8 +318,8 @@ p.review-with-text {
   }
 
   .ss3d-slide {
-    width: 320px;
-    height: 200px;
+    width: 450px;
+    height: 280px;
   }
 
   .ss3d-slides-track {
@@ -322,7 +332,26 @@ p.review-with-text {
   }
 
   .ss3d-content p {
-    font-size: 1em;
+    font-size: 0.9em;
+  }
+
+  .ss3d-slideshow-section {
+    padding: 70px 15px 40px 15px;
+  }
+
+  .ss3d-content {
+    margin-top: 0;
+  }
+
+  .review-star-icon {
+    line-height: 22px;
+  }
+
+  .sls-content-wrapper {
+    padding-right: 50px;
+    box-shadow: 4px 0px 6px 0px #95bf4729;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -333,8 +362,8 @@ p.review-with-text {
   }
 
   .ss3d-slide {
-    width: 240px;
-    height: 150px;
+    width: 320px;
+    height: 200px;
   }
 
   .ss3d-slides-track {

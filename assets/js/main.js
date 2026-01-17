@@ -231,3 +231,36 @@
   window.addEventListener("load", navmenuScrollspy);
   document.addEventListener("scroll", navmenuScrollspy);
 })();
+
+// sls-unique-section.js code
+document.addEventListener("DOMContentLoaded", function () {
+  const steps = document.querySelectorAll(".sls-unique-step");
+
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: "0px",
+  };
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "0";
+        entry.target.style.transform = "translateY(30px)";
+
+        setTimeout(() => {
+          entry.target.style.transition =
+            "opacity 0.6s ease, transform 0.6s ease";
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }, 100);
+
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  steps.forEach((step, index) => {
+    step.style.transitionDelay = `${index * 0.2}s`;
+    observer.observe(step);
+  });
+});

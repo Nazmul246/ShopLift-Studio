@@ -1,0 +1,271 @@
+.sls-unique-workflow-section {
+  padding: 60px 20px 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sls-unique-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sls-unique-header {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.sls-unique-subtitle {
+  color: #c6ff00;
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.sls-unique-title {
+  color: #ffffff;
+  font-size: clamp(32px, 5vw, 72px);
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.sls-unique-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.sls-unique-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.sls-unique-step:hover {
+  transform: translateY(-10px);
+}
+
+.sls-unique-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #000000;
+  border: 3px solid #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.sls-unique-step:hover .sls-unique-circle {
+  border-color: #95bf47;
+  box-shadow: 0 0 30px rgba(198, 255, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.sls-unique-icon {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.3s ease;
+}
+
+.sls-unique-step:hover .sls-unique-icon {
+  transform: rotate(360deg);
+}
+
+.sls-unique-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.sls-unique-number {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ffffff;
+  color: #000000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+  transition: all 0.3s ease;
+}
+
+.sls-unique-step:hover .sls-unique-number {
+  background: #c6ff00;
+  transform: scale(1.1);
+}
+
+.sls-unique-step-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.sls-unique-step:hover .sls-unique-step-title {
+  color: #c6ff00;
+}
+
+.sls-unique-connector {
+  width: 150px;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    #95bf47 0px,
+    #95bf47 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  position: relative;
+  margin: 0 -20px;
+  margin-bottom: 80px;
+  animation: sls-unique-dash 20s linear infinite;
+}
+
+@keyframes sls-unique-dash {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 160px 0;
+  }
+}
+
+.sls-unique-arrow {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 80px;
+  margin-left: -10px;
+  animation: sls-unique-bounce 2s ease-in-out infinite;
+}
+
+@keyframes sls-unique-bounce {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.sls-unique-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1200px) {
+  .sls-unique-timeline {
+    gap: 40px;
+  }
+
+  .sls-unique-connector {
+    width: 80px;
+  }
+}
+
+@media (max-width: 968px) {
+  .sls-unique-workflow-section {
+    padding: 60px 20px;
+  }
+
+  .sls-unique-header {
+    margin-bottom: 0;
+  }
+
+  .sls-unique-step {
+    gap: 15px;
+  }
+
+  .sls-unique-timeline {
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .sls-unique-connector {
+    width: 3px;
+    height: 80px;
+    background: repeating-linear-gradient(
+      0deg,
+      #c6ff00 0px,
+      #c6ff00 8px,
+      transparent 8px,
+      transparent 16px
+    );
+    margin: -20px 0;
+    animation: sls-unique-dash-vertical 20s linear infinite;
+  }
+
+  @keyframes sls-unique-dash-vertical {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 160px;
+    }
+  }
+
+  .sls-unique-arrow {
+    transform: rotate(90deg);
+    margin: -20px 0;
+  }
+
+  .sls-unique-circle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .sls-unique-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .sls-unique-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .sls-unique-circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .sls-unique-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .sls-unique-number {
+    width: 35px;
+    height: 35px;
+    font-size: 12px;
+  }
+
+  .sls-unique-step-title {
+    font-size: 16px;
+  }
+}
