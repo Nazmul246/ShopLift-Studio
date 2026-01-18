@@ -4089,7 +4089,7 @@ section#testimonials {
   color: #95bf47;
   border: 2px solid #95bf47;
   border-radius: 12px;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   cursor: pointer;
   position: relative;
@@ -4099,6 +4099,7 @@ section#testimonials {
   align-items: center;
   gap: 12px;
   width: fit-content;
+  font-family: var(--heading-font);
 }
 
 .btn-view-work .gallery-icon {
