@@ -1,8 +1,9 @@
 /* Fonts */
 :root {
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font:
+    "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Nunito Sans", sans-serif;
   --nav-font: "Raleway", sans-serif;
 }
@@ -1358,7 +1359,7 @@ section#services {
 .services .service-card {
   padding: 40px 40px 40px 40px;
   margin-bottom: 30px;
-  border: 2px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border: 1px solid #95bf4791;
   transition: all 0.3s ease;
 }
 
@@ -1565,6 +1566,7 @@ section#services {
   background-color: var(--surface-color);
   padding: 30px;
   border-radius: 8px;
+  border: 2px solid color-mix(in srgb, var(--accent-color), transparent 85%);
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease-in-out;
 }
@@ -1869,14 +1871,26 @@ section#services {
   padding-bottom: 60px;
 }
 
+section#testimonials {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+
 .testimonials .swiper-wrapper {
   height: auto;
 }
 
 .testimonials .testimonial-item {
-  background-color: var(--surface-color);
+  background-color: color-mix(in srgb, var(--surface-color), transparent 50%);
   padding: 40px;
+  backdrop-filter: blur(10px);
   border-radius: 20px;
+  border: 1px solid #95bf4791;
 }
 
 @media (max-width: 575px) {
@@ -2632,7 +2646,9 @@ section#services {
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
   padding: 25px;
   height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   align-items: flex-start;
   gap: 15px;
@@ -4063,5 +4079,133 @@ section#services {
 }
 
 /*--------------------------------------------------------------
-# Starter Section Section
+# Button CSS
 --------------------------------------------------------------*/
+
+.btn-view-work {
+  padding: 18px 40px;
+  margin: 0 auto;
+  background: transparent;
+  color: #95bf47;
+  border: 2px solid #95bf47;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+}
+
+.btn-view-work .gallery-icon {
+  display: flex;
+  gap: 3px;
+  transition: all 0.4s ease;
+}
+
+.btn-view-work .gallery-icon span {
+  width: 6px;
+  height: 18px;
+  background: #95bf47;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.btn-view-work .gallery-icon span:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.btn-view-work .gallery-icon span:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.btn-view-work .gallery-icon span:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.btn-view-work:hover .gallery-icon span {
+  background: #000000;
+  transform: scaleY(1.3);
+}
+
+.btn-view-work::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: #95bf47;
+  transition: height 0.4s ease;
+  z-index: -1;
+}
+
+.btn-view-work:hover::before {
+  height: 100%;
+}
+
+.btn-view-work:hover {
+  color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(149, 191, 71, 0.4);
+}
+
+/*--------------------------------------------------------------
+# Curson Styling CSS
+--------------------------------------------------------------*/
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cursor-ring.active {
+  transform: scale(0.6);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Soft Wave Effect */
+.soft-wave {
+  position: fixed;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  z-index: 9997;
+  animation: softWaveEffect 1.8s ease-out forwards;
+}
+
+@keyframes softWaveEffect {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    width: 130px;
+    height: 130px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}

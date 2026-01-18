@@ -110,7 +110,7 @@
   function initSwiper() {
     document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
+        swiperElement.querySelector(".swiper-config").innerHTML.trim(),
       );
 
       if (swiperElement.classList.contains("swiper-tab")) {
@@ -147,7 +147,7 @@
           layoutMode: layout,
           filter: filter,
           sortBy: sort,
-        }
+        },
       );
     });
 
@@ -168,7 +168,7 @@
               aosInit();
             }
           },
-          false
+          false,
         );
       });
   });
@@ -178,7 +178,7 @@
    */
   document
     .querySelectorAll(
-      ".faq-item h3, .faq-item .faq-toggle, .faq-item .faq-header"
+      ".faq-item h3, .faq-item .faq-toggle, .faq-item .faq-header",
     )
     .forEach((faqItem) => {
       faqItem.addEventListener("click", () => {
@@ -264,3 +264,58 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(step);
   });
 });
+
+// Custom Cursor
+
+const cursorDot = document.querySelector(".cursor-dot");
+const cursorRing = document.querySelector(".cursor-ring");
+
+let mouseX = 0;
+let mouseY = 0;
+let ringX = 0;
+let ringY = 0;
+
+// Track mouse movement
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  cursorDot.style.left = mouseX - 4 + "px";
+  cursorDot.style.top = mouseY - 4 + "px";
+});
+
+// Animate ring to follow with delay
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.15;
+  ringY += (mouseY - ringY) * 0.15;
+
+  cursorRing.style.left = ringX - 20 + "px";
+  cursorRing.style.top = ringY - 20 + "px";
+
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+// Create soft wave effect on click
+document.addEventListener("click", (e) => {
+  const x = e.clientX;
+  const y = e.clientY;
+
+  createSoftWave(x, y);
+
+  // Animate cursor ring on click
+  cursorRing.classList.add("active");
+  setTimeout(() => cursorRing.classList.remove("active"), 300);
+});
+
+function createSoftWave(x, y) {
+  for (let i = 0; i < 2; i++) {
+    const wave = document.createElement("div");
+    wave.className = "soft-wave";
+    wave.style.left = x + "px";
+    wave.style.top = y + "px";
+    wave.style.animationDelay = i * 0.4 + "s";
+    document.body.appendChild(wave);
+    setTimeout(() => wave.remove(), 2200);
+  }
+}
