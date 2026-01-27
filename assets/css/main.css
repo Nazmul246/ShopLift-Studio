@@ -4083,7 +4083,7 @@ section#testimonials {
 --------------------------------------------------------------*/
 
 .btn-view-work {
-  padding: 18px 40px;
+  padding: 18px 20px;
   margin: 0 auto;
   background: transparent;
   color: #95bf47;
@@ -4102,6 +4102,11 @@ section#testimonials {
   font-family: var(--heading-font);
 }
 
+.cta-primary-btn {
+  background: var(--accent-color);
+  color: #fff;
+}
+
 .btn-view-work .gallery-icon {
   display: flex;
   gap: 3px;
@@ -4113,6 +4118,11 @@ section#testimonials {
   height: 18px;
   background: #95bf47;
   border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.cta-primary-btn .gallery-icon span {
+  background: #fff;
   transition: all 0.3s ease;
 }
 
@@ -4153,6 +4163,24 @@ section#testimonials {
   color: #000000;
   transform: translateY(-3px);
   box-shadow: 0 15px 40px rgba(149, 191, 71, 0.4);
+}
+
+.cta-primary-btn {
+  gap: 6px;
+}
+
+/* Styling the Bootstrap Icon */
+
+.cta-primary-btn i {
+  font-size: 1.8rem;
+  font-weight: bold;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  display: flex;
+}
+
+.cta-primary-btn:hover i {
+  transform: translateX(6px) rotate(90deg) scale(1.15);
+  color: #000000;
 }
 
 /*--------------------------------------------------------------
