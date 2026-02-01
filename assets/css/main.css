@@ -4238,3 +4238,30 @@ section#testimonials {
     transform: translate(-50%, -50%) scale(1.1);
   }
 }
+
+.body-cta-wrapper {
+  margin: 0;
+}
+
+.body-cta-btn {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 16px;
+}
+
+.body-cta-btn i {
+  font-size: 1.4rem;
+}
+
+.body-cta-btn .gallery-icon span {
+  height: 16px;
+}
+
+.body-cta-btn:hover .gallery-icon span {
+  background: #000000;
+  transform: scaleY(1);
+}
+
+.testimonial-content-wrapper {
+  margin: auto 0;
+}
