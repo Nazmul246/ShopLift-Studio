@@ -1,0 +1,685 @@
+/* ===================================================
+   CSS VARIABLES – mirrors ShopLift brand palette
+   =================================================== */
+:root {
+  --sls-bg-deep: #031119;
+  --sls-bg-card: #161d24;
+  --sls-bg-card-hover: #1a2530;
+  --sls-bg-input: #141b22;
+  --sls-border: #232f3a;
+  --sls-border-focus: #95bf47;
+  --sls-accent: #95bf47; /* primary green */
+  --sls-accent-dim: rgba(74, 222, 128, 0.12);
+  --sls-accent-glow: rgba(74, 222, 128, 0.25);
+  --sls-text-primary: #f0f4f8;
+  --sls-text-secondary: rgba(255, 255, 255, 0.8);
+  --sls-text-muted: #d0d0d0;
+  /* --sls-font-display: "Outfit", sans-serif; */
+  /* --sls-font-body: "Inter", sans-serif; */
+}
+
+/* ===================================================
+   OUTER WRAPPER
+   =================================================== */
+.sls-contact-section {
+  background: var(--sls-bg-deep);
+  color: var(--sls-text-primary);
+  padding: 60px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── subtle top-edge glow ─── */
+.sls-contact-section::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 10%,
+    var(--sls-border) 50%,
+    transparent 90%
+  );
+}
+
+/* ===================================================
+   DECORATIVE BACKGROUND SHAPES
+   =================================================== */
+.sls-contact-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+.sls-contact-bg-blob--left {
+  width: 380px;
+  height: 380px;
+  background: rgba(74, 222, 128, 0.07);
+  top: 10%;
+  left: -120px;
+}
+.sls-contact-bg-blob--right {
+  width: 300px;
+  height: 300px;
+  background: rgba(74, 222, 128, 0.05);
+  bottom: 15%;
+  right: -100px;
+}
+
+/* ===================================================
+   INNER CONTAINER
+   =================================================== */
+.sls-contact-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===================================================
+   SECTION HEADER
+   =================================================== */
+.sls-contact-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sls-contact-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--sls-accent-dim);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  border-radius: 40px;
+  padding: 6px 18px;
+  margin-bottom: 24px;
+}
+.sls-contact-badge__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sls-accent);
+  box-shadow: 0 0 8px var(--sls-accent-glow);
+  animation: sls-pulse 2s ease-in-out infinite;
+}
+@keyframes sls-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 8px var(--sls-accent-glow);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 14px var(--sls-accent-glow);
+  }
+}
+.sls-contact-badge__text {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--sls-accent);
+}
+
+.sls-contact-header h2 {
+  font-size: clamp(34px, 5vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--sls-text-primary);
+  margin-bottom: 16px;
+}
+.sls-contact-header h2 .sls-contact-header__accent {
+  color: var(--sls-accent);
+}
+
+.sls-contact-header p {
+  max-width: 580px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--sls-text-secondary);
+}
+
+/* ===================================================
+   TRUST BADGES ROW (below header)
+   =================================================== */
+.sls-trust-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px 40px;
+  margin-bottom: 64px;
+}
+.sls-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sls-trust-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--sls-accent-dim);
+  border: 1px solid rgba(74, 222, 128, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sls-trust-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--sls-accent);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sls-trust-item__text {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--sls-text-secondary);
+  letter-spacing: 0.2px;
+}
+.sls-trust-item__text strong {
+  color: var(--sls-text-primary);
+  font-weight: 600;
+}
+
+/* ===================================================
+   TWO-COLUMN GRID
+   =================================================== */
+.sls-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 820px) {
+  .sls-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================================
+   LEFT COLUMN – Info Cards
+   =================================================== */
+.sls-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sls-info-card {
+  background: var(--sls-bg-card);
+  border: 1px solid var(--sls-border);
+  border-radius: 10px;
+  padding: 26px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition:
+    border-color 0.3s,
+    background 0.3s,
+    transform 0.3s;
+}
+.sls-info-card:hover {
+  border-color: rgba(74, 222, 128, 0.3);
+  background: var(--sls-bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.sls-info-card__icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--sls-accent-dim);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sls-info-card__icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--sls-accent);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sls-info-card__body {
+}
+.sls-info-card__label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--sls-text-muted);
+  margin-bottom: 6px;
+}
+.sls-info-card__value {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--sls-text-primary);
+  line-height: 1.55;
+}
+.sls-info-card__value a {
+  color: var(--sls-text-primary);
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.sls-info-card__value a:hover {
+  color: var(--sls-accent);
+}
+
+/* ─── "Why work with us" mini-block ─── */
+.sls-why-card {
+  background: linear-gradient(
+    135deg,
+    rgba(74, 222, 128, 0.08) 0%,
+    rgba(74, 222, 128, 0.02) 100%
+  );
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 10px;
+  padding: 28px 26px;
+  margin-top: 4px;
+}
+.sls-why-card__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--sls-text-primary);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sls-why-card__title svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--sls-accent);
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sls-why-list {
+  list-style: none;
+}
+.sls-why-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--sls-text-secondary);
+  line-height: 1.5;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.sls-why-list li:last-child {
+  border-bottom: none;
+}
+.sls-why-list__check {
+  flex-shrink: 0;
+  margin-top: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--sls-accent-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sls-why-list__check svg {
+  width: 10px;
+  height: 10px;
+  stroke: var(--sls-accent);
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ===================================================
+   RIGHT COLUMN – Form Card
+   =================================================== */
+.sls-form-card {
+  background: var(--sls-bg-card);
+  border: 1px solid var(--sls-border);
+  border-radius: 10px;
+  padding: 44px 40px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle corner accent */
+.sls-form-card::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    var(--sls-accent-dim) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.sls-form-card__header {
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+}
+.sls-form-card__header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--sls-text-primary);
+  margin-bottom: 6px;
+}
+.sls-form-card__header p {
+  font-size: 14px;
+  color: var(--sls-text-muted);
+}
+
+ul.sls-why-list {
+  padding-left: 0;
+}
+
+/* ─── form layout ─── */
+.sls-form {
+  position: relative;
+  z-index: 1;
+}
+.sls-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 520px) {
+  .sls-form__row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sls-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.sls-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sls-text-secondary);
+  letter-spacing: 0.3px;
+}
+.sls-field label .sls-field__req {
+  color: var(--sls-accent);
+}
+
+.sls-field input,
+.sls-field select,
+.sls-field textarea {
+  width: 100%;
+  background: var(--sls-bg-input);
+  border: 1px solid var(--sls-border);
+  border-radius: 12px;
+  padding: 13px 16px;
+  font-size: 14px;
+  color: var(--sls-text-primary);
+  outline: none;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    background 0.25s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.sls-field input::placeholder,
+.sls-field textarea::placeholder {
+  color: var(--sls-text-muted);
+}
+
+.sls-field input:focus,
+.sls-field select:focus,
+.sls-field textarea:focus {
+  border-color: var(--sls-border-focus);
+  box-shadow: 0 0 0 3px var(--sls-accent-dim);
+  background: rgba(20, 27, 34, 0.9);
+}
+
+/* select arrow */
+.sls-field__select-wrap {
+  position: relative;
+}
+.sls-field__select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--sls-text-muted);
+  border-bottom: 2px solid var(--sls-text-muted);
+  transform: translateY(-60%) rotate(45deg);
+  pointer-events: none;
+}
+.sls-field select {
+  padding-right: 42px;
+  cursor: pointer;
+  color: var(--sls-text-muted);
+}
+.sls-field select option {
+  background: var(--sls-bg-card);
+  color: var(--sls-text-primary);
+}
+.sls-field select.sls-field__selected {
+  color: var(--sls-text-primary);
+}
+
+.sls-field textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+/* ─── submit button ─── */
+.sls-form__submit-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.sls-btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #95bf47;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 15px 34px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition:
+    background 0.25s,
+    transform 0.2s,
+    box-shadow 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.sls-btn-submit:hover {
+  color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(149, 191, 71, 0.4);
+}
+.sls-btn-submit:active {
+  transform: translateY(0);
+}
+
+.sls-btn-submit svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s;
+}
+.sls-btn-submit:hover svg {
+  transform: translateX(3px);
+}
+
+/* loading state */
+.sls-btn-submit.sls-btn--loading {
+  pointer-events: none;
+  background: #16a34a;
+}
+.sls-btn-submit .sls-btn__spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(15, 20, 25, 0.3);
+  border-top-color: #0f1419;
+  border-radius: 50%;
+  animation: sls-spin 0.6s linear infinite;
+}
+@keyframes sls-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.sls-btn-submit.sls-btn--loading .sls-btn__spinner {
+  display: block;
+}
+.sls-btn-submit.sls-btn--loading .sls-btn__text,
+.sls-btn-submit.sls-btn--loading .sls-btn__arrow {
+  display: none;
+}
+
+.sls-form__note {
+  font-size: 12.5px;
+  color: var(--sls-text-muted);
+  line-height: 1.5;
+  max-width: 240px;
+}
+.sls-form__note svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--sls-text-muted);
+  fill: none;
+  stroke-width: 2;
+  vertical-align: middle;
+  margin-right: 3px;
+}
+
+/* ─── success / error messages ─── */
+.sls-form__msg {
+  display: none;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.sls-form__msg--success {
+  display: flex;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.25);
+  color: #86efac;
+}
+.sls-form__msg--error {
+  display: flex;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  color: #fca5a5;
+}
+.sls-form__msg__icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sls-form__msg--success .sls-form__msg__icon {
+  background: rgba(74, 222, 128, 0.15);
+}
+.sls-form__msg--error .sls-form__msg__icon {
+  background: rgba(239, 68, 68, 0.15);
+}
+.sls-form__msg__icon svg {
+  width: 13px;
+  height: 13px;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sls-form__msg--success .sls-form__msg__icon svg {
+  stroke: var(--sls-accent);
+}
+.sls-form__msg--error .sls-form__msg__icon svg {
+  stroke: #ef4444;
+}
+
+/* field-level error */
+.sls-field__error {
+  font-size: 12px;
+  color: #f87171;
+  margin-top: -12px;
+  margin-bottom: 2px;
+  display: none;
+}
+.sls-field.sls-field--invalid input,
+.sls-field.sls-field--invalid select,
+.sls-field.sls-field--invalid textarea {
+  border-color: #ef4444;
+}
+.sls-field.sls-field--invalid .sls-field__error {
+  display: block;
+}
+
+/* ===================================================
+   RESPONSIVE TWEAKS
+   =================================================== */
+@media (max-width: 768px) {
+  .sls-contact-section {
+    padding: 80px 0 60px;
+  }
+  .sls-form-card {
+    padding: 30px 22px 26px;
+  }
+  .sls-contact-header {
+    margin-bottom: 24px;
+  }
+  .sls-trust-row {
+    gap: 20px;
+  }
+  .sls-contact-inner {
+    padding: 0 12px;
+  }
+  .sls-trust-row > * {
+    flex: 0 0 calc(50% - 20px); /* 2 items per row */
+  }
+}

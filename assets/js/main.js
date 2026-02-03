@@ -319,3 +319,125 @@ function createSoftWave(x, y) {
     setTimeout(() => wave.remove(), 2200);
   }
 }
+
+// sls unique contact us section
+
+(function () {
+  "use strict";
+
+  var form = document.getElementById("sls-contact-form");
+  var btn = document.getElementById("sls-submit-btn");
+  var msgOk = document.getElementById("sls-msg-success");
+  var msgErr = document.getElementById("sls-msg-error");
+  var selectEls = form.querySelectorAll("select");
+
+  // ── hide both messages on page load ──
+  msgOk.style.display = "none";
+  msgErr.style.display = "none";
+
+  // ── live: colour select text when a value is chosen ──
+  selectEls.forEach(function (sel) {
+    sel.addEventListener("change", function () {
+      this.classList.toggle("sls-field__selected", this.value !== "");
+    });
+  });
+
+  // ── live: clear error state on input ──
+  var fieldIds = ["sls-name", "sls-email", "sls-service", "sls-message"];
+  fieldIds.forEach(function (id) {
+    document.getElementById(id).addEventListener("input", function () {
+      var parent = this.closest(".sls-field");
+      if (parent) parent.classList.remove("sls-field--invalid");
+    });
+  });
+
+  // ── client-side validation ──
+  function validate() {
+    var valid = true;
+
+    // name
+    var name = document.getElementById("sls-name");
+    if (!name.value.trim()) {
+      markInvalid("sls-field-name");
+      valid = false;
+    }
+
+    // email – basic pattern
+    var email = document.getElementById("sls-email");
+    var emailPat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPat.test(email.value.trim())) {
+      markInvalid("sls-field-email");
+      valid = false;
+    }
+
+    // service
+    var service = document.getElementById("sls-service");
+    if (!service.value) {
+      markInvalid("sls-field-service");
+      valid = false;
+    }
+
+    // message
+    var msg = document.getElementById("sls-message");
+    if (!msg.value.trim()) {
+      markInvalid("sls-field-message");
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  function markInvalid(fieldId) {
+    var el = document.getElementById(fieldId);
+    if (el) el.classList.add("sls-field--invalid");
+  }
+
+  // ── submit handler ──
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // honeypot check
+    if (form.querySelector('[name="_honey"]').value) return;
+
+    if (!validate()) return;
+
+    // hide previous messages
+    msgOk.style.display = "none";
+    msgErr.style.display = "none";
+
+    // loading state
+    btn.classList.add("sls-btn--loading");
+
+    // collect data
+    var data = new FormData(form);
+
+    // ── fetch POST to Formspree ──
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+    })
+      .then(function (res) {
+        btn.classList.remove("sls-btn--loading");
+
+        if (res.ok) {
+          // success
+          msgOk.style.display = "flex";
+          form.reset();
+          // re-reset select colours
+          selectEls.forEach(function (s) {
+            s.classList.remove("sls-field__selected");
+          });
+        } else {
+          // formspree validation error
+          return res.json().then(function (o) {
+            throw new Error(o.error || "Unknown");
+          });
+        }
+      })
+      .catch(function () {
+        btn.classList.remove("sls-btn--loading");
+        msgErr.style.display = "flex";
+      });
+  });
+})();
