@@ -1,0 +1,43 @@
+@media (max-width: 768px) {
+  span.review-star-icon {
+    display: flex;
+  }
+  .satisfaction-block {
+    flex-direction: column;
+    padding: 20px 15px;
+  }
+  .cta-btn-wrapper {
+    flex-direction: column;
+  }
+  .testimonial-section {
+    margin-top: 0px !important;
+    padding-top: 30px !important;
+  }
+  .col-lg-8.aos-init.aos-animate {
+    margin-top: 20px;
+  }
+  .services .service-header {
+    margin-bottom: 20px;
+  }
+  .sls-unique-workflow-section {
+    padding: 0px 20px;
+  }
+  section#services {
+    padding: 0px 0 2px 0 !important;
+  }
+  .section-title {
+    padding-bottom: 0px !important;
+  }
+  .services .service-header {
+    margin-bottom: 20px !important;
+  }
+  .call-to-action {
+    padding: 15px 0px !important;
+  }
+  section#call-to-action {
+    margin-top: 30px;
+  }
+  .body-cta-wrapper.cta-btn-wrapper {
+    margin: auto !important;
+  }
+}

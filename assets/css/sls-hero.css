@@ -461,6 +461,14 @@ p.review-with-text {
   }
 
   .satisfaction-text h3 {
-    font-size: 24px !important;
+    font-size: 16px !important;
+  }
+  .about {
+    padding-top: 50px !important;
+    padding-bottom: 64px;
+  }
+
+  .col-lg-6.mt-4.mt-lg-0.aos-init.aos-animate {
+    padding-top: 20px;
   }
 }
