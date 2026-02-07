@@ -52,14 +52,15 @@
     margin-top: 30px;
     border-radius: 0;
     padding-top: 0 !important;
+    padding-bottom: 70px !important;
   }
   section#call-to-action .container {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
-  #call-to-action .content-left.flex-grow-1 {
+  /* #call-to-action .content-left.flex-grow-1 {
     padding-top: 50px;
-  }
+  } */
   .body-cta-wrapper.cta-btn-wrapper {
     margin: auto !important;
   }
@@ -84,5 +85,33 @@
 
   .call-to-action p {
     font-size: 1rem !important;
+  }
+
+  .advertise-1 {
+    flex-direction: column-reverse !important;
+  }
+
+  section#testimonials .container {
+    padding-bottom: 30px;
+  }
+
+  section#testimonials,
+  .testimonial-heading,
+  .portfolio-title,
+  .team-member-title {
+    padding-bottom: 30px;
+  }
+
+  section#portfolio {
+    padding-bottom: 10px;
+  }
+
+  section.team-member-section,
+  section#team {
+    padding-bottom: 0;
+  }
+
+  h2.faq-title {
+    font-size: 28px !important;
   }
 }
