@@ -309,7 +309,8 @@ p.review-with-text {
 
 @media (max-width: 768px) {
   .ss3d-slideshow-wrapper {
-    height: 350px;
+    height: 300px;
+    margin-top: 12px;
   }
 
   .ss3d-desktop-screen {
@@ -372,7 +373,12 @@ p.review-with-text {
   }
 
   .ss3d-content h1 {
-    font-size: 1.5em;
+    font-size: 1.6em;
+  }
+
+  .btn-view-work {
+    padding: 12px 22px;
+    font-size: 1rem;
   }
 }
 

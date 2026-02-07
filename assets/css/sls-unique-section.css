@@ -210,6 +210,8 @@
   .sls-unique-timeline {
     flex-direction: column;
     gap: 26px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   .sls-unique-connector {
