@@ -195,6 +195,8 @@ h6 {
   margin: 0 0 0 30px;
   border-radius: 50px;
   transition: 0.3s;
+  display: flex;
+  gap: 5px;
 }
 
 .header .btn-getstarted:hover,
@@ -4280,3 +4282,7 @@ section#testimonials {
 .faq-item {
   background: #031119 !important;
 } */
+
+.client-designation {
+  color: var(--accent-color) !important;
+}
