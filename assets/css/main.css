@@ -1,8 +1,8 @@
 /* Fonts */
 :root {
   --default-font:
-    "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Poppins", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial,
+    "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Nunito Sans", sans-serif;
   --nav-font: "Raleway", sans-serif;
@@ -4085,13 +4085,14 @@ section#testimonials {
 --------------------------------------------------------------*/
 
 .btn-view-work {
-  padding: 18px 20px;
+  /* padding: 18px 20px; */
+  padding: 14px 28px;
   margin: 0 auto;
   background: transparent;
   color: #95bf47;
   border: 2px solid #95bf47;
   border-radius: 12px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   position: relative;

@@ -114,4 +114,32 @@
   h2.faq-title {
     font-size: 28px !important;
   }
+
+  .ssp-ctas .btn-view-work {
+    padding: 14px 15px;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .ssp-ctas .btn-view-work .gallery-icon span {
+    width: 3px;
+    height: 14px;
+  }
+
+  .ssp-ctas .cta-primary-btn i {
+    font-size: 1.1rem;
+  }
+
+  .ssp-ctas .cta-btn-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .ssp-ctas .cta-btn-wrapper {
+    gap: 6px !important;
+  }
+
+  .satisfaction-block {
+    margin-bottom: 0;
+  }
 }
